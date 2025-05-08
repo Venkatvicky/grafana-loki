@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki-index-gateway
+  labels:
+    {{- include "loki.labels" . | nindent 4 }}
+    component: index-gateway
+spec:
+  replicas: {{ .Values.loki.indexGateway.replicas }}
+  selector:
+    matchLabels:
+      {{- include "loki.selectorLabels" . | nindent 6 }}
+      component: index-gateway
+  template:
+    metadata:
+      labels:
+        {{- include "loki.selectorLabels" . | nindent 8 }}
+        component: index-gateway
+    spec:
+      containers:
+        - name: index-gateway
+          image: "{{ .Values.global.image.repository }}:{{
