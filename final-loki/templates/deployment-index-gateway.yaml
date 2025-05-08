@@ -19,4 +19,4 @@ spec:
     spec:
       containers:
         - name: index-gateway
-          image: "{{ .Values.global.image.repository }}:{{
+          image: "{{ .Values.global.image.repository }}
