@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: loki-compactor
   labels:
-    {{- include "loki.labels" . | nindent 4 }}
+{{ include "loki.labels" . | indent 4 }}
 spec:
   accessModes:
     - ReadWriteOnce
